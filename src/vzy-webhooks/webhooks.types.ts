@@ -1,8 +1,6 @@
 export enum StripeWebHookEvent {
-  // EXPIRED_CHECKOUT = "checkout.session.expired",
-  // COMPLETED_CHECKOUT = "checkout.session.completed",
-  SUCCEEDED_CHECKOUT = "checkout.session.async_payment_succeeded",
-  FAILED_CHECKOUT = "checkout.session.async_payment_failed",
+  PAYMENT_SUCCEEDED = "payment_intent.succeeded",
+  PAYMENT_FAILED = "payment_intent.payment_failed",
 };
 
 export type StripeWebhookData <TYPE> = {
@@ -60,25 +58,16 @@ pending_webhooks: number;
 type: TYPE;
 };
 
-// export type StripeCompleteCheckoutWebhookData = {
-//   event: StripeWebHookEvent.COMPLETED_CHECKOUT,
-//   data: StripeWebhookData<"checkout.session.completed">
-// };
+
 export type StripeSucceededCheckoutWebhookData = {
-  event: StripeWebHookEvent.SUCCEEDED_CHECKOUT,
-  data: StripeWebhookData<"checkout.session.async_payment_succeeded">
+  event: StripeWebHookEvent.PAYMENT_SUCCEEDED,
+  data: StripeWebhookData<"payment_intent.succeeded">
 };
 export type StripeFailedCheckoutWebhookData = {
-  event: StripeWebHookEvent.FAILED_CHECKOUT,
-  data: StripeWebhookData<"checkout.session.async_payment_failed">
+  event: StripeWebHookEvent.PAYMENT_FAILED,
+  data: StripeWebhookData<"payment_intent.payment_failed">
 };
-// export type StripeExpiredCheckoutWebhookData = {
-//   event: StripeWebHookEvent.EXPIRED_CHECKOUT,
-//   data: StripeWebhookData<"checkout.session.expired">
-// };
 
 export type Webhook =
-  // | StripeCompleteCheckoutWebhookData
   | StripeSucceededCheckoutWebhookData
   | StripeFailedCheckoutWebhookData;
-  // | StripeExpiredCheckoutWebhookData;

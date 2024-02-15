@@ -4,7 +4,6 @@ export interface ITokenGeneratorFunc {
   (req: Request, Parameter?: string) : string | undefined;
 }
 
-// user token by header
 export const headerBearerToken: ITokenGeneratorFunc = (request) => {
   const getTokenFromAuthHeader = (authorizationHeader: string) => {
     const tokenRegex = /Bearer (.+)/;

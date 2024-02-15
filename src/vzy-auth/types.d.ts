@@ -15,12 +15,3 @@ export type SignIn = {
   onSuccess: (...args: any[]) => any;
   onFailure?: (...args: any[]) => any;
 };
-
-
-export type ReturnValue = {
-  success: boolean;
-  message: string;
-  token?: string;
-  data: Record<string, any>;
-  hookData?: Record<string, any>;
-};

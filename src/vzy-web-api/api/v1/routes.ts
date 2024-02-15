@@ -2,6 +2,7 @@ import { Request, Response, Router } from "express";
 import { config } from '../../config';
 
 import authRoute from "../../../vzy-auth/api/routes/index";
+import webhookRoute from "../../../vzy-webhooks/webhooks.routes";
 
 const router = Router();
 
@@ -14,7 +15,8 @@ router.get('/health-check', (_req: Request, res: Response) =>
 router.route('/docs').get((_req: Request, res: Response) => res.redirect(config.apiDocs));
 
 // mount routes
-router.use("/auth", authRoute)
+router.use("/auth", authRoute);
+router.use("/webhook", webhookRoute);
 
 
 export default router;

@@ -3,6 +3,7 @@ import cookieParser from "cookie-parser";
 import cors from "cors";
 import logger from "morgan";
 import helmet from "helmet";
+import bodyParser from 'body-parser';
 import v1Routes from "./v1/routes";
 import { error } from "../config/errors";
 
@@ -17,6 +18,7 @@ function createServer() {
         .use(cookieParser())
         .use(logger("tiny"))
         .use(express.json({ limit: '5mb' }))
+        .use((bodyParser.json()))
         .use(express.urlencoded({ extended: true }))
         .use("/api/v1", v1Routes)
         .use(error.converter)

@@ -20,23 +20,3 @@ export const Server = (
                     `🚀 Server ready and listening at (${config.env}) ==> http://localhost:${port}`)),
     };
 };
-
-
-
-
-
-// import logger from "../utils/logger";
-// import dotenv from "dotenv";
-// import createServer from "../../api/app";
-// import { Application } from "express";
-
-// dotenv.config();
-
-
-// const PORT: number = Number(process.env.PORT);
-
-// const app: Application = createServer();
-
-// app.listen(PORT, () => {
-//     logger.info(`E-commerce service running at http://localhost:${PORT}`);
-// });

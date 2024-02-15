@@ -32,20 +32,6 @@ export const LiveDatabaseManager = (connectionURI: string, options: ConnectOptio
                 'MongoDB error:\n' + err
             );
         });
-
-        // // print mongoose logs in dev env
-        // if (config.store.database.mongodb.mongooseDebug) {
-        //     mongoose.set(
-        //         'debug',
-        //         (collectionName: String, method: String, query: String, doc: Document) => {
-        //             debug('perday-server:index')(
-        //                 `${collectionName}.${method}`,
-        //                 util.inspect(query, false, 20),
-        //                 doc,
-        //             );
-        //         }
-        //     );
-        // }
     }
 };
 

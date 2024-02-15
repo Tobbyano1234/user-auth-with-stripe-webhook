@@ -78,7 +78,6 @@ export const accessControl = ({ AccountTypes, token }: AccessControlType) => {
         const deactivatedAccount =
           account.associatedData.metaData.status == AccountStatus.DEACTIVATED;
         if (deactivatedAccount) {
-          // either login before x days or create another account
           return response.status(httpStatus.UNAUTHORIZED).json(
             sendResponse(
               httpStatus.UNAUTHORIZED,

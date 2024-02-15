@@ -27,9 +27,3 @@ export interface ResponseInterface {
   errors?: object | null;
   token?: string | null;
 }
-
-export class PaginationDTO {
-  page?: number;
-  limit?: number;
-  ignoreNew?: boolean;
-}
