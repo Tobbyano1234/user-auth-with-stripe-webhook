@@ -1,6 +1,6 @@
 export enum StripeWebHookEvent {
-  PAYMENT_SUCCEEDED = "payment_intent.succeeded",
-  PAYMENT_FAILED = "payment_intent.payment_failed",
+  PAYMENT_SUCCEEDED = "charge.succeeded",
+  PAYMENT_FAILED = "charge.failed",
 };
 
 export type StripeWebhookData <TYPE> = {
@@ -61,11 +61,11 @@ type: TYPE;
 
 export type StripeSucceededCheckoutWebhookData = {
   event: StripeWebHookEvent.PAYMENT_SUCCEEDED,
-  data: StripeWebhookData<"payment_intent.succeeded">
+  data: StripeWebhookData<"charge.succeeded">
 };
 export type StripeFailedCheckoutWebhookData = {
   event: StripeWebHookEvent.PAYMENT_FAILED,
-  data: StripeWebhookData<"payment_intent.payment_failed">
+  data: StripeWebhookData<"charge.failed">
 };
 
 export type Webhook =
